@@ -1,0 +1,10 @@
+[package]
+name = "maze_escape"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+clearscreen = "4.0.2"
+crossterm = "0.29.0"
+rand = "0.8.0"
+

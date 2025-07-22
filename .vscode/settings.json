@@ -1,0 +1,30 @@
+{
+    // 使用外部终端
+    "terminal.integrated.defaultProfile.windows": "Command Prompt",
+    // 运行任务时使用外部终端
+    "terminal.integrated.automationProfile.windows": {
+        "path": "cmd.exe"
+    },
+    // 设置外部终端为默认
+    "terminal.external.windowsExec": "cmd.exe",
+    // 运行代码时使用外部终端
+    "code-runner.runInTerminal": true,
+    // 设置运行方式
+    "code-runner.executorMap": {
+        "rust": "cd $dir && cargo run"
+    },
+    // 自动保存
+    "files.autoSave": "afterDelay",
+    // 运行任务时始终显示外部终端
+    "terminal.integrated.automationShell.windows": "cmd.exe",
+    // 终端在编辑器区域打开
+    "terminal.integrated.defaultLocation": "editor",
+    // 设置快捷键提示
+    "workbench.tips.enabled": true,
+    // 设置任务焦点
+    "terminal.integrated.enablePersistentSessions": true,
+    // 允许在终端中运行命令
+    "terminal.integrated.allowChords": true,
+    // 设置终端历史记录
+    "terminal.integrated.commandHistory": 100
+}
