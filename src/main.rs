@@ -3,8 +3,8 @@ use rand::seq::SliceRandom;
 use std::io::{self, Write};
 use std::collections::VecDeque;
 
-const MAZE_WIDTH: usize = 25;  // 增加迷宫大小
-const MAZE_HEIGHT: usize = 15;
+const MAZE_WIDTH: usize = 30;  // 迷宫宽度
+const MAZE_HEIGHT: usize = 20;  // 迷宫d高度
 
 #[derive(Clone, PartialEq)]
 enum Cell {
@@ -121,6 +121,7 @@ impl Game {
                 }
                 maze[current.0][current.1] = Cell::Path;
             }
+            maze[exit_pos.0][exit_pos.1] = Cell::Exit;
         }
 
         Game {
@@ -135,22 +136,22 @@ impl Game {
     fn display(&self) {
         clearscreen::clear().expect("Failed to clear screen");
         println!("移动步数: {}  收集金币: {}", self.moves, self.coins);
-        println!("┌{}┐", "─".repeat(MAZE_WIDTH));
+        println!("┌{}┐", "─".repeat(MAZE_WIDTH * 2));
         for row in &self.maze {
             print!("│");
             for cell in row {
                 let symbol = match cell {
-                    Cell::Wall => "█",
-                    Cell::Path => " ",
-                    Cell::Player => "P",
-                    Cell::Exit => "E",
-                    Cell::Coin => "©",
+                    Cell::Wall => "██",
+                    Cell::Path => "  ",
+                    Cell::Player => "👨",
+                    Cell::Exit => "🚪",
+                    Cell::Coin => "💰",
                 };
                 print!("{}", symbol);
             }
             println!("│");
         }
-        println!("└{}┘", "─".repeat(MAZE_WIDTH));
+        println!("└{}┘", "─".repeat(MAZE_WIDTH * 2));
         println!("\n使用 WASD 移动，Q 退出");
     }
 
